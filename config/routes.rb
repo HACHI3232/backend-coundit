@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-end
+  devise_for :users
+    # ユーザー登録のルート
+    post 'api/users', to: 'users#create'
+    # ユーザーログインルート
+    post 'api/users/login', to: 'auth#create'
+  end
