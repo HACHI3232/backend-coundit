@@ -2,6 +2,11 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :update, :destroy]
   before_action :set_article, only: [:show, :update, :destroy]
 
+  def index
+    articles = Article.all
+    render json: articles, status: :ok
+  end
+
   def create
     article = current_user.articles.build(article_params)
     if article.save
