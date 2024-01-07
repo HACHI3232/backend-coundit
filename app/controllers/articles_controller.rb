@@ -19,6 +19,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def update
+    article = Article.find_by(slug: params[:slug])
+    if article.update(article_params)
+      render json :article
+    else
+      render json: article.errors, status: :unprocessable_entity
+    end
+  end
   private
 
   def article_params
