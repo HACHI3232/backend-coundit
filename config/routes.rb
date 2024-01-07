@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     post 'api/users/login', to: 'auth#create'
     #記事作成
     post 'api/articles', to: 'articles#create'
+    #特定の記事を閲覧
+    get 'api/articles/:slug' , to: 'articles#show' 
   end
