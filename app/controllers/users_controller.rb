@@ -1,4 +1,3 @@
-# app/controllers/users_controller.rb
 class UsersController < ApplicationController
   # ユーザー登録（サインアップ）のアクション
   def create
