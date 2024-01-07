@@ -27,6 +27,15 @@ class ArticlesController < ApplicationController
       render json: article.errors, status: :unprocessable_entity
     end
   end
+
+  def destroy
+    article = Article.find_by(slug: params[:slug])
+    if article&.destroy
+      head :no_content
+    else
+      render json: { error: 'Article not found or not owned by user' }, status: :not_found
+    end
+  end
   private
 
   def article_params
