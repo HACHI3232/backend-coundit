@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     get 'api/articles/:slug' , to: 'articles#show' 
     #特定の記事をアップデート
     put 'api/articles/:slug', to: 'articles#update'
+    #特定の記事を削除
+    delete 'api/articles/:slug', to: 'articles#destroy'
   end
